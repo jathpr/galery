@@ -1,7 +1,6 @@
 import React from 'react'
-import { Form, Input, Button, Select } from 'antd'
-
-const { Option } = Select
+import { Upload, message, Form, Input, Button, Select } from 'antd'
+import { UploadOutlined } from '@ant-design/icons'
 
 const layout = {
 	labelCol: { span: 8 },
@@ -14,25 +13,6 @@ const tailLayout = {
 export const Demo = () => {
 	const [form] = Form.useForm()
 
-	const onGenderChange = (value) => {
-		switch (value) {
-			case 'male':
-				form.setFieldsValue({ note: 'Hi, man!' })
-
-				return
-			case 'female':
-				form.setFieldsValue({ note: 'Hi, lady!' })
-
-				return
-			case 'other':
-				form.setFieldsValue({ note: 'Hi there!' })
-
-				return
-			default:
-				throw new Error()
-		}
-	}
-
 	const onFinish = (values) => {
 		console.log(values)
 	}
@@ -40,44 +20,40 @@ export const Demo = () => {
 	const onReset = () => {
 		form.resetFields()
 	}
-
-	const onFill = () => {
-		form.setFieldsValue({
-			note: 'Hello world!',
-			gender: 'male',
-		})
+	const props = {
+		name: 'file',
+		action: 'https://www.mocky.io/v2/5cc8019d300000980a055e76',
+		headers: {
+			authorization: 'authorization-text',
+		},
+		onChange(info) {
+			if (info.file.status !== 'uploading') {
+				console.log(info.file, info.fileList)
+			}
+			if (info.file.status === 'done') {
+				message.success(`${info.file.name} file uploaded successfully`)
+			} else if (info.file.status === 'error') {
+				message.error(`${info.file.name} file upload failed.`)
+			}
+		},
 	}
 
 	return (
 		<Form {...layout} form={form} name='control-hooks' onFinish={onFinish}>
-			<Form.Item name='note' label='Note' rules={[{ required: true }]}>
+			<Form.Item name='note' label='Description' rules={[{ required: true }]}>
 				<Input />
 			</Form.Item>
-			<Form.Item name='gender' label='Gender' rules={[{ required: true }]}>
-				<Select placeholder='Select a option and change input text above' onChange={onGenderChange} allowClear>
-					<Option value='male'>male</Option>
-					<Option value='female'>female</Option>
-					<Option value='other'>other</Option>
-				</Select>
+			<Form.Item name='file' label='Download image' rules={[{ required: true }]}>
+				<Upload {...props}>
+					<Button icon={<UploadOutlined />}>Click to Upload</Button>
+				</Upload>
 			</Form.Item>
-			<Form.Item noStyle shouldUpdate={(prevValues, currentValues) => prevValues.gender !== currentValues.gender}>
-				{({ getFieldValue }) =>
-					getFieldValue('gender') === 'other' ? (
-						<Form.Item name='customizeGender' label='Customize Gender' rules={[{ required: true }]}>
-							<Input />
-						</Form.Item>
-					) : null
-				}
-			</Form.Item>
-			<Form.Item {...tailLayout}>
+			<Form.Item {...props}>
 				<Button type='primary' htmlType='submit'>
 					Submit
 				</Button>
 				<Button htmlType='button' onClick={onReset}>
 					Reset
-				</Button>
-				<Button type='link' htmlType='button' onClick={onFill}>
-					Fill form
 				</Button>
 			</Form.Item>
 		</Form>
