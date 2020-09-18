@@ -1,0 +1,15 @@
+img{
+    width: 60%;
+    height: 100%;
+}
+
+li{
+    list-style-type: none;
+    display: flex;
+    margin-bottom: 10px;
+    border: 1px solid #1890ff;
+}
+
+div{
+    font-size: 20px;
+}
