@@ -3,17 +3,11 @@ import { Switch, Route, Link } from 'react-router-dom'
 import { Login } from '../pages/Login'
 
 export const AppRouter = () => {
-	const Home = () => {
-		<div>home</div>
-	}
+	const Home = () => <div>home</div>
 
-	const Register = () => {
-		<div>register</div>
-	}
+	const Register = () => <div>register</div>
 
-	const Profile = () => {
-		<div>profile</div>
-	}
+	const Profile = () => <div>profile</div>
 
 	const Header = () => (
 		<header>
@@ -41,7 +35,7 @@ export const AppRouter = () => {
 			<Header />
 			<Switch>
 				<Route exact path='/' component={Home} />
-				<Route path='/login' component={Profile} />
+				<Route path='/login' component={Login} />
 				<Route path='/register' component={Register} />
 				<Route path='/profile' component={Profile} />
 			</Switch>
