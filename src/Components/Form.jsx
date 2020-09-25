@@ -1,6 +1,6 @@
-import React from 'react'
-import { Upload, message, Form, Input, Button, Select } from 'antd'
-import { UploadOutlined } from '@ant-design/icons'
+import React, { useState } from 'react'
+import { message, Form, Input, Button } from 'antd'
+import { sendPhoto } from '../requests/photos'
 
 const layout = {
 	labelCol: { span: 8 },
@@ -12,30 +12,23 @@ const tailLayout = {
 
 export const Demo = () => {
 	const [form] = Form.useForm()
+	const [image, setImg] = useState()
 
-	const onFinish = (values) => {
-		console.log(values)
+	const onImageSelected = (e) => {
+		const file = e.target.files[0]
+
+		const reader = new FileReader()
+		reader.onloadend = function () {
+			setImg(reader.result)
+		}
+		reader.readAsDataURL(file)
 	}
-
+	const onFinish = (values) => {
+		sendPhoto({ about: values.note, userId: 111, image: image, url: values.fileUrl })
+	}
 	const onReset = () => {
 		form.resetFields()
-	}
-	const props = {
-		name: 'file',
-		action: 'https://www.mocky.io/v2/5cc8019d300000980a055e76',
-		headers: {
-			authorization: 'authorization-text',
-		},
-		onChange(info) {
-			if (info.file.status !== 'uploading') {
-				console.log(info.file, info.fileList)
-			}
-			if (info.file.status === 'done') {
-				message.success(`${info.file.name} file uploaded successfully`)
-			} else if (info.file.status === 'error') {
-				message.error(`${info.file.name} file upload failed.`)
-			}
-		},
+		setImg()
 	}
 
 	return (
@@ -43,12 +36,16 @@ export const Demo = () => {
 			<Form.Item name='note' label='Description' rules={[{ required: true }]}>
 				<Input />
 			</Form.Item>
-			<Form.Item name='file' label='Download image' rules={[{ required: true }]}>
-				<Upload {...props}>
-					<Button icon={<UploadOutlined />}>Click to Upload</Button>
-				</Upload>
+			<Form.Item name='file' label='Download image' rules={[{ required: false }]}>
+				<div>
+					{image && <img src={image} alt='pic' />}
+					<input type='file' onChange={onImageSelected} />
+				</div>
 			</Form.Item>
-			<Form.Item {...props}>
+			<Form.Item name='fileUrl' label='Download image url' rules={[{ required: false }]}>
+				<input />
+			</Form.Item>
+			<Form.Item {...tailLayout}>
 				<Button type='primary' htmlType='submit'>
 					Submit
 				</Button>
