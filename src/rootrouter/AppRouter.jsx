@@ -1,6 +1,6 @@
 import React from 'react'
 import { Switch, Route, Link } from 'react-router-dom'
-import { Login } from '../pages/Login'
+import { Authorization } from '../pages/Authorization'
 
 export const AppRouter = () => {
 	const Home = () => <div>home</div>
@@ -35,7 +35,7 @@ export const AppRouter = () => {
 			<Header />
 			<Switch>
 				<Route exact path='/' component={Home} />
-				<Route path='/login' component={Login} />
+				<Route path='/login' component={Authorization} />
 				<Route path='/register' component={Register} />
 				<Route path='/profile' component={Profile} />
 			</Switch>
