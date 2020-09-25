@@ -1,8 +1,8 @@
 import React, { useReducer } from 'react'
-import { Login } from './pages/Login'
-import { Photo } from './pages/Photo'
 import { DispatchContext, StateContext } from './store'
 import { initialState, reducer } from './store/reducer'
+import { Authorization } from './pages/Authorization'
+import { Registration } from './pages/Registration'
 
 export const App = () => {
 	const [state, dispatch] = useReducer(reducer, initialState)
@@ -10,8 +10,8 @@ export const App = () => {
 	return (
 		<StateContext.Provider value={state}>
 			<DispatchContext.Provider value={dispatch}>
-				<Login />
-				<Photo />
+				<Authorization />
+				<Registration />
 			</DispatchContext.Provider>
 		</StateContext.Provider>
 	)

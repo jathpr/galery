@@ -27,7 +27,7 @@ export const Content = () => {
 	}
 
 	return (
-		<div className={s.div}>
+		<div className={s.pictures_block}>
 			<ul>
 				{pictures1.map((pic) => (
 					<Pictures key={pic.id} obj={pic} />
