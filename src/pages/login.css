@@ -1,0 +1,17 @@
+#basic,h1 {
+    padding-top: 30px;
+}
+h1 {
+    padding-left: 30px;
+}
+.form {
+    width: 500px;
+}
+
+#normal_login {
+    padding-left: 15px;
+}
+.login-form-button {
+    margin-right: 15px;
+    margin-left: 50px;
+}
