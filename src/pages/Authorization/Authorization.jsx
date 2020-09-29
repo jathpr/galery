@@ -1,17 +1,12 @@
 import React, { useContext } from 'react'
 import { Form, Input, Button } from 'antd'
 import { UserOutlined, LockOutlined } from '@ant-design/icons'
-import './login.css'
-import { authUser } from '../requests/user'
+import '../login.css'
 
-export const Authorization = ({ loginUser }) => {
+export const AuthorizationComponent = ({ authUserThunk }) => {
 	const onFinish = async (values) => {
 		console.log('Received values of form: ', values)
-		// const users = await authUser({ login: values.username, pass: values.password })
-		// if (users.length > 0) {
-		// 	dispatch({ type: 'SET_USER', user: users[0] })
-		// }
-		loginUser({ login: values.username, pass: values.password })
+		authUserThunk(values.username, values.password)
 	}
 
 	return (

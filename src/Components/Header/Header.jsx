@@ -2,10 +2,8 @@ import React from 'react'
 import { Button, PageHeader, Menu, Dropdown } from 'antd'
 import { UserOutlined } from '@ant-design/icons'
 import Avatar from 'antd/lib/avatar/avatar'
-import { connect } from 'react-redux'
-import { setUser } from '../../store/actionCreators'
 
-const HeaderComponent = ({ user, setUser }) => {
+export const HeaderComponent = ({ user, setUser }) => {
 	const extra = []
 	const menu = (
 		<Menu className='bcg'>
@@ -44,9 +42,3 @@ const HeaderComponent = ({ user, setUser }) => {
 		</>
 	)
 }
-
-const actionCreator = {
-	setUser,
-}
-
-export const HeaderLogo = connect(null, actionCreator)(HeaderComponent)
