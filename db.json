@@ -1,0 +1,47 @@
+{
+  "users": [
+    {
+      "id": 0,
+      "login": "Wantuz",
+      "other": "some staff",
+      "pass": "passThisOn"
+    },
+    {
+      "login": "1",
+      "pass": "1",
+      "other": "1",
+      "id": 5
+    }
+  ],
+  "photo": [
+    {
+      "id": 0,
+      "url": "https://kipmu.ru/wp-content/uploads/pchlnvtkmdlt.jpg",
+      "about": "son",
+      "userId": 0
+    },
+    {
+      "id": 1,
+      "url": "https://avatars.mds.yandex.net/get-zen_doc/173924/pub_5af85c304bf1619ffff87cf1_5af85d8dc71a92b2a858b2f0/scale_1200",
+      "about": "lux",
+      "userId": 0
+    },
+    {
+      "id": 2,
+      "url": "https://www.rus-zona.net/wp-content/uploads/2015/03/lenivec.jpg",
+      "about": "easy",
+      "userId": 0
+    }
+  ],
+  "about": [
+    {
+      "id": 0,
+      "name": "son",
+      "surname": "of",
+      "phone": "777",
+      "email": "lipa@tree.wood",
+      "about": "Cupcake ipsum dolor sit amet chocolate I love. Cheesecake chupa chups toffee. Tiramisu sweet I love tart chocolate bar bear claw toffee. Oat cake lollipop tootsie roll I love icing. Lollipop gingerbread pastry. Lollipop danish I love dragée tootsie roll icing. Powder fruitcake brownie jelly-o. Dessert gummies candy canes apple pie cake pudding tiramisu bonbon caramels. Lollipop tiramisu carrot cake gummi bears I love sugar plum cookie. Chupa chups dragée gingerbread donut I love brownie toffee.",
+      "userId": 0
+    }
+  ]
+}

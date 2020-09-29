@@ -1,8 +1,13 @@
 import React from 'react'
-import { Content } from './components/Content/Content'
+import { BrowserRouter } from 'react-router-dom'
+import { AppRouter } from './rootrouter/AppRouter'
+import { store } from './store'
+import { Provider } from 'react-redux'
 
 export const App = () => (
-	<div>
-		<Content />
-	</div>
+	<BrowserRouter>
+		<Provider store={store}>
+			<AppRouter />
+		</Provider>
+	</BrowserRouter>
 )
