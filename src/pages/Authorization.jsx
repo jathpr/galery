@@ -3,16 +3,15 @@ import { Form, Input, Button } from 'antd'
 import { UserOutlined, LockOutlined } from '@ant-design/icons'
 import './login.css'
 import { authUser } from '../requests/user'
-import { DispatchContext } from '../store'
 
-export const Authorization = () => {
-	const dispatch = useContext(DispatchContext)
+export const Authorization = ({ loginUser }) => {
 	const onFinish = async (values) => {
 		console.log('Received values of form: ', values)
-		const users = await authUser({ login: values.username, pass: values.password })
-		if (users.length > 0) {
-			dispatch({ type: 'SET_USER', user: users[0] })
-		}
+		// const users = await authUser({ login: values.username, pass: values.password })
+		// if (users.length > 0) {
+		// 	dispatch({ type: 'SET_USER', user: users[0] })
+		// }
+		loginUser({ login: values.username, pass: values.password })
 	}
 
 	return (

@@ -9,8 +9,11 @@
 		"antd": "^4.6.3",
 		"react": "^16.13.1",
 		"react-dom": "^16.13.1",
+		"react-redux": "^7.2.1",
 		"react-router-dom": "^5.2.0",
-		"react-scripts": "3.4.3"
+		"react-scripts": "3.4.3",
+		"redux": "^4.0.5",
+		"redux-thunk": "^2.3.0"
 	},
 	"scripts": {
 		"start": "react-scripts start",
@@ -40,7 +43,8 @@
 		"husky": "^4.3.0",
 		"lint-staged": "^10.3.0",
 		"prettier": "^2.1.2",
-		"prettier-eslint": "^11.0.0"
+		"prettier-eslint": "^11.0.0",
+		"redux-devtools-extension": "^2.13.8"
 	},
 	"husky": {
 		"hooks": {

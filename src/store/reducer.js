@@ -1,15 +1,12 @@
-export const initialState = {
-	user: null,
-	photos: [],
-	profile: null,
+const initialState = {
+	user: 'null',
 	isShowAll: true,
 }
 
-export const reducer = (state, action) => {
+export const reducer = (state = initialState, action) => {
 	switch (action.type) {
 		case 'SET_USER':
 			return { ...state, user: action.user }
-
 		default:
 			return state
 	}
