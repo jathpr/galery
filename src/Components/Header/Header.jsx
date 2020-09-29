@@ -3,7 +3,7 @@ import { Button, PageHeader, Menu, Dropdown } from 'antd'
 import { UserOutlined } from '@ant-design/icons'
 import Avatar from 'antd/lib/avatar/avatar'
 
-export const HeaderLogo = ({ user }) => {
+export const HeaderComponent = ({ user, setUser }) => {
 	const extra = []
 	const menu = (
 		<Menu className='bcg'>
@@ -34,6 +34,7 @@ export const HeaderLogo = ({ user }) => {
 	} else {
 		extra.push(<Button>Войти</Button>)
 	}
+	extra.push(<Button onClick={() => setUser('user')}>setUser</Button>)
 
 	return (
 		<>
