@@ -8,6 +8,10 @@ export const AppRouter = () => {
 
 	const Profile = () => <div>profile</div>
 
+	const hellioy = process.env.REACT_APP_TEST
+	console.log('AppRouter -> hellioy', hellioy)
+	console.log('AppRouter -> hellioy', JSON.parse(hellioy))
+
 	const Header = () => (
 		<header>
 			<nav>

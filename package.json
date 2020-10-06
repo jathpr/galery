@@ -7,6 +7,7 @@
 		"@testing-library/react": "^9.3.2",
 		"@testing-library/user-event": "^7.1.2",
 		"antd": "^4.6.4",
+		"firebase": "^7.22.1",
 		"react": "^16.13.1",
 		"react-dom": "^16.13.1",
 		"react-redux": "^7.2.1",
@@ -53,8 +54,7 @@
 	},
 	"lint-staged": {
 		"*.{js,jsx}": [
-			"npx eslint --ext .js,.jsx . --fix",
-			"git add"
+			"npx eslint --ext .js,.jsx ./src --fix"
 		]
 	}
 }
