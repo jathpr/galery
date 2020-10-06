@@ -1,5 +1,6 @@
 import { SET_USER } from './actionTypes'
 import { authUser } from '../requests/user'
+import {loginUser} from "../firebase";
 
 export const setUser = (user) => ({
 	type: SET_USER,
@@ -7,8 +8,7 @@ export const setUser = (user) => ({
 })
 
 export const authUserThunk = (login, pass) => async (dispatch) => {
-	const users = await authUser({ login: login, pass: pass })
-	if (users.length > 0) {
-		dispatch(setUser(users[0]))
-	}
+	const responce = await loginUser (login, pass)
+	console.log(responce)
+//	responce.json
 }
