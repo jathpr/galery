@@ -1,5 +1,5 @@
 import React from 'react'
-import { HeaderLogo } from '../components/Header'
+import { HeaderLogo } from '../Components/Header'
 import { connect } from 'react-redux'
 
 const MainComponent = ({ user }) => (
