@@ -1,0 +1,21 @@
+[debug] [2020-10-06T16:11:38.044Z] ----------------------------------------------------------------------
+[debug] [2020-10-06T16:11:38.046Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\silit\AppData\Local\Yarn\Data\global\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2020-10-06T16:11:38.046Z] CLI Version:   8.12.0
+[debug] [2020-10-06T16:11:38.046Z] Platform:      win32
+[debug] [2020-10-06T16:11:38.046Z] Node Version:  v12.16.3
+[debug] [2020-10-06T16:11:38.047Z] Time:          Tue Oct 06 2020 19:11:38 GMT+0300 (GMT+03:00)
+[debug] [2020-10-06T16:11:38.047Z] ----------------------------------------------------------------------
+[debug] [2020-10-06T16:11:38.047Z] 
+[debug] [2020-10-06T16:11:38.053Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-10-06T16:11:38.053Z] > authorizing via signed-in user
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\silit\OneDrive\Рабочий стол\qw\galery
+

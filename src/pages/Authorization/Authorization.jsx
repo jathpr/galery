@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { Form, Input, Button } from 'antd'
 import { UserOutlined, LockOutlined } from '@ant-design/icons'
-import '../login.css'
+import './login.css'
 
 export const AuthorizationComponent = ({ authUserThunk }) => {
 	const onFinish = async (values) => {

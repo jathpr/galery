@@ -17,11 +17,9 @@ const tailLayout = {
 	},
 }
 
-export const Registration = () => {
+export const RegistrationComponent = ({ register }) => {
 	const onFinish = (values) => {
-		console.log('Success:', values)
-		const { confirm, ...newUser } = values
-		sendData(newUser)
+		register(values.login, values.pass)
 	}
 	const onFinishFailed = (errorInfo) => {
 		console.log('Failed:', errorInfo)
@@ -60,7 +58,7 @@ export const Registration = () => {
 				onFinishFailed={onFinishFailed}>
 				<Form.Item
 					className={'form'}
-					label='Username'
+					label='email'
 					name='login'
 					rules={[
 						{

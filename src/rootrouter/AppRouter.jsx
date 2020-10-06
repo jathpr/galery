@@ -1,15 +1,18 @@
-import React, {useEffect} from 'react'
+import React, { useEffect } from 'react'
 import { Switch, Route, Link } from 'react-router-dom'
 import { Authorization } from '../pages/Authorization'
+import { Registration } from '../pages/Registration'
 import { Main } from '../pages/Main'
-import {initAuth} from "../firebase";
+import { initAuth } from '../firebase'
 
 export const AppRouter = () => {
 	const Register = () => <div>register</div>
 
 	const Profile = () => <div>profile</div>
 
-	useEffect(()=> {initAuth((user)=>console.log(user))}, [])
+	useEffect(() => {
+		initAuth((user) => console.log(user))
+	}, [])
 
 	const Header = () => (
 		<header>
@@ -38,7 +41,7 @@ export const AppRouter = () => {
 			<Switch>
 				<Route exact path='/' component={Main} />
 				<Route path='/login' component={Authorization} />
-				<Route path='/register' component={Register} />
+				<Route path='/register' component={Registration} />
 				<Route path='/profile' component={Profile} />
 			</Switch>
 		</>
