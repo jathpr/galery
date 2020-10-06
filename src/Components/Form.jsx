@@ -16,6 +16,7 @@ export const Demo = () => {
 
 	const onImageSelected = (e) => {
 		const file = e.target.files[0]
+		console.log('onImageSelected -> file', file)
 
 		const reader = new FileReader()
 		reader.onloadend = function () {
