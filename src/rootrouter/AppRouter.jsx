@@ -1,16 +1,15 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import { Switch, Route, Link } from 'react-router-dom'
 import { Authorization } from '../pages/Authorization'
 import { Main } from '../pages/Main'
+import {initAuth} from "../firebase";
 
 export const AppRouter = () => {
 	const Register = () => <div>register</div>
 
 	const Profile = () => <div>profile</div>
 
-	const hellioy = process.env.REACT_APP_TEST
-	console.log('AppRouter -> hellioy', hellioy)
-	console.log('AppRouter -> hellioy', JSON.parse(hellioy))
+	useEffect(()=> {initAuth((user)=>console.log(user))}, [])
 
 	const Header = () => (
 		<header>
