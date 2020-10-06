@@ -53,8 +53,7 @@
 	},
 	"lint-staged": {
 		"*.{js,jsx}": [
-			"npx eslint --ext .js,.jsx . --fix",
-			"git add"
+			"npx eslint --ext .js,.jsx . --fix"
 		]
 	}
 }
