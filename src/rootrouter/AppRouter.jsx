@@ -7,6 +7,7 @@ import { initAuth } from '../firebase'
 
 export const AppRouter = ({ isAuth, setUser }) => {
 	const Profile = () => <div>profile</div>
+
 	const history = useHistory()
 	useEffect(() => {
 		initAuth((user) => {
