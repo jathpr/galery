@@ -2,7 +2,7 @@ import React from 'react'
 import { Button, PageHeader, Menu, Dropdown } from 'antd'
 import { UserOutlined } from '@ant-design/icons'
 import Avatar from 'antd/lib/avatar/avatar'
-import {signOut} from '../../firebase'
+import { signOut } from '../../firebase'
 
 export const HeaderComponent = ({ user, setUser }) => {
 	const extra = []
@@ -37,6 +37,7 @@ export const HeaderComponent = ({ user, setUser }) => {
 	}
 	extra.push(<Button onClick={() => setUser('user')}>setUser</Button>)
 	extra.push(<Button onClick={() => signOut()}>signOut</Button>)
+
 	return (
 		<>
 			<PageHeader className='site-page-header' title='Заголовок' extra={extra} />
