@@ -3,6 +3,8 @@ import { Button, PageHeader, Menu, Dropdown } from 'antd'
 import { UserOutlined } from '@ant-design/icons'
 import Avatar from 'antd/lib/avatar/avatar'
 import { signOut } from '../../firebase'
+import { MenuButton } from './styles'
+import { Link } from 'react-router-dom'
 
 export const HeaderComponent = ({ user, setUser }) => {
 	const extra = []
@@ -12,31 +14,28 @@ export const HeaderComponent = ({ user, setUser }) => {
 				<a target='_blank'>показать только мои</a>
 			</Menu.Item>
 			<Menu.Item>
-				<a target='_blank'>профиль</a>
+				<Link to='/profile'>профиль</Link>
 			</Menu.Item>
 			<Menu.Item>
-				<a target='_blank'>выйти</a>
+				<MenuButton as='a' onClick={signOut}>
+					выйти
+				</MenuButton>
 			</Menu.Item>
 		</Menu>
 	)
 	if (user) {
 		extra.push(
 			<Dropdown overlay={menu} placement='bottomLeft' arrow>
-				<Button key='3'>Информация</Button>
+				<Avatar
+					src='https://st3.depositphotos.com/6707292/16849/i/450/depositphotos_168495402-stock-photo-colorful-peruh-symbol-year-eastern.jpg'
+					size={90}
+					icon={<UserOutlined />}
+				/>
 			</Dropdown>,
-		)
-		extra.push(
-			<Avatar
-				src='https://st3.depositphotos.com/6707292/16849/i/450/depositphotos_168495402-stock-photo-colorful-peruh-symbol-year-eastern.jpg'
-				size={90}
-				icon={<UserOutlined />}
-			/>,
 		)
 	} else {
 		extra.push(<Button>Войти</Button>)
 	}
-	extra.push(<Button onClick={() => setUser('user')}>setUser</Button>)
-	extra.push(<Button onClick={() => signOut()}>signOut</Button>)
 
 	return (
 		<>

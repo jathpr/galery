@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import { Form, Input, Button } from 'antd'
 import { UserOutlined, LockOutlined } from '@ant-design/icons'
 import './login.css'
-import { RegLink } from './Styles'
+import { Link } from 'react-router-dom'
 
 export const AuthorizationComponent = ({ authUserThunk }) => {
 	const onFinish = async (values) => {
@@ -42,7 +42,7 @@ export const AuthorizationComponent = ({ authUserThunk }) => {
 					<Button type='primary' htmlType='submit' className='login-form-button'>
 						Log in
 					</Button>
-					Or <RegLink href=''> register now!</RegLink>
+					Or <Link to='/register'>register now!</Link>
 				</Form.Item>
 			</Form>
 		</>

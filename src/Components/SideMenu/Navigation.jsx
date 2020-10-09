@@ -1,21 +1,20 @@
 import React from 'react'
 import { NavItem } from './Styles'
+import { Menu } from 'antd'
 
 export const Navigation = () => (
-	<nav>
-		<ul>
-			<li>
-				<NavItem to='/'>Home</NavItem>
-			</li>
-			<li>
-				<NavItem to='/login'>Login</NavItem>
-			</li>
-			<li>
-				<NavItem to='/register'>Register</NavItem>
-			</li>
-			<li>
-				<NavItem to='/profile'>Profile</NavItem>
-			</li>
-		</ul>
-	</nav>
+	<Menu>
+		<Menu.Item>
+			<NavItem to='/'>Home</NavItem>
+		</Menu.Item>
+		<Menu.Item>
+			<NavItem to='/login'>Login</NavItem>
+		</Menu.Item>
+		<Menu.Item>
+			<NavItem to='/register'>Register</NavItem>
+		</Menu.Item>
+		<Menu.Item>
+			<NavItem to='/profile'>Profile</NavItem>
+		</Menu.Item>
+	</Menu>
 )
