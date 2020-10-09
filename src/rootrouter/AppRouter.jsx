@@ -6,8 +6,6 @@ import { Main } from '../pages/Main'
 import { initAuth } from '../firebase'
 
 export const AppRouter = ({ isAuth, setUser }) => {
-	const Profile = () => <div>profile</div>
-
 	const history = useHistory()
 	useEffect(() => {
 		initAuth((user) => {
@@ -21,8 +19,7 @@ export const AppRouter = ({ isAuth, setUser }) => {
 			<Route path='/login' component={Authorization} />
 			<Route path='/register' component={Registration} />
 			{/* {!isAuth && <Redirect to='/login' />} */}
-			<Route exact path='/' component={Main} />
-			<Route path='/profile' component={Profile} />
+			<Route path='/' component={Main} />
 		</Switch>
 	)
 }
