@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { Switch, Route, Link, useHistory } from 'react-router-dom'
+import { Switch, Route, useHistory } from 'react-router-dom'
 import { Authorization } from '../pages/Authorization'
 import { Registration } from '../pages/Registration'
 import { Main } from '../pages/Main'
@@ -16,37 +16,13 @@ export const AppRouter = ({ isAuth, setUser }) => {
 		})
 	}, [])
 
-	const Header = () => (
-		<header>
-			<nav>
-				<ul>
-					<li>
-						<Link to='/'>Home</Link>
-					</li>
-					<li>
-						<Link to='/login'>Login</Link>
-					</li>
-					<li>
-						<Link to='/register'>Register</Link>
-					</li>
-					<li>
-						<Link to='/profile'>Profile</Link>
-					</li>
-				</ul>
-			</nav>
-		</header>
-	)
-
 	return (
-		<>
-			<Header />
-			<Switch>
-				<Route path='/login' component={Authorization} />
-				<Route path='/register' component={Registration} />
-				{/* {!isAuth && <Redirect to='/login' />} */}
-				<Route exact path='/' component={Main} />
-				<Route path='/profile' component={Profile} />
-			</Switch>
-		</>
+		<Switch>
+			<Route path='/login' component={Authorization} />
+			<Route path='/register' component={Registration} />
+			{/* {!isAuth && <Redirect to='/login' />} */}
+			<Route exact path='/' component={Main} />
+			<Route path='/profile' component={Profile} />
+		</Switch>
 	)
 }
