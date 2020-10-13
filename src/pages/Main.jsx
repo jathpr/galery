@@ -5,20 +5,22 @@ import { SideMenu } from '../components/SideMenu'
 import { Content } from '../components/Content'
 import { Layout } from 'antd'
 import { Route, Switch } from 'react-router-dom'
-const { Header, Sider, Content: AntdContent } = Layout
+import { Profile } from '../components/Profile'
+import { CustomHeader } from './style'
+const { Sider, Content: AntdContent } = Layout
 
 const MainComponent = ({ user }) => (
 	<Layout>
-		<Header>
+		<CustomHeader>
 			<HeaderLogo />
-		</Header>
+		</CustomHeader>
 		<Layout>
 			<Sider>
 				<SideMenu />
 			</Sider>
 			<AntdContent>
 				<Switch>
-					<Route path='/profile' component={() => 'profile'} />
+					<Route path='/profile' component={Profile} />
 					<Content />
 				</Switch>
 			</AntdContent>
