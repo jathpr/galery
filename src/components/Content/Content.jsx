@@ -4,12 +4,13 @@ import { Pagination } from 'antd'
 import 'antd/dist/antd.css'
 import s from './Content.module.css'
 
-export const Content = () => {
+export const ContentComponent = ({ photoData, getPhotoData }) => {
 	const [pictures, setPictures] = useState([])
 	const [pictures1, setPictures1] = useState([])
 
 	useEffect(() => {
 		getInfo()
+		getPhotoData()
 		changePag()
 	}, [])
 
@@ -29,7 +30,7 @@ export const Content = () => {
 	return (
 		<div className={s.pictures_block}>
 			<ul>
-				{pictures1.map((pic) => (
+				{photoData.map((pic) => (
 					<Pictures key={pic.id} obj={pic} />
 				))}
 			</ul>
