@@ -2,9 +2,9 @@ import React, { useEffect } from 'react'
 
 export const ProfileComponent = (props) => {
 	// fetch('https://my-json-server.typicode.com/jathpr/galery/about/0')
-	useEffect(() => {
-		props.getUserData()
-	}, [])
+	// useEffect(() => {
+	// 	props.getUserData()
+	// }, [])
 	const userData = props.userData
 
 	return (
