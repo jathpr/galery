@@ -4,6 +4,6 @@ import { connect } from 'react-redux'
 
 const actionCreators = {}
 
-const mapStateToProps = (state) => ({})
+const mapStateToProps = (state) => ({ userData: state.reducer.userData })
 
 export const Profile = connect(mapStateToProps, actionCreators)(ProfileComponent)
