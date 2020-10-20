@@ -17,7 +17,7 @@ export const reducer = (state = initialState, action) => {
 		case SET_PHOTO_DATA:
 			return { ...state, photoData: action.photoData }
 		case SHOW_ONLY_MY_PHOTO:
-			return { ...state, photoData: state.photoData.filter((user) => user.id === state.userData.id) }
+			return { ...state, isShowAll: !state.isShowAll }
 		default:
 			return state
 	}

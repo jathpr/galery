@@ -8,6 +8,7 @@ export const setUser = (user) => ({
 export const getPhotoThunk = () => async (dispatch) => {
 	const responce = await fetch('https://my-json-server.typicode.com/jathpr/galery/photo')
 	const photoData = await responce.json()
+	console.log(photoData)
 	dispatch({ type: SET_PHOTO_DATA, photoData })
 }
 export const getMyPhoto = () => ({
