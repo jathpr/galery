@@ -5,9 +5,10 @@ import { Registration } from '../pages/Registration'
 import { Main } from '../pages/Main'
 import { initAuth } from '../firebase'
 
-export const AppRouter = ({ isAuth, setUser }) => {
+export const AppRouter = ({ isAuth, setUser, getUserDataThunk }) => {
 	const history = useHistory()
 	useEffect(() => {
+		getUserDataThunk()
 		initAuth((user) => {
 			setUser(user)
 			user ? history.push('/') : history.push('/login')

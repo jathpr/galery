@@ -1,10 +1,11 @@
-import { SET_USER, SET_USER_DATA, SET_PHOTO_DATA } from './actionTypes'
+import { SET_USER, SET_USER_DATA, SET_PHOTO_DATA, SHOW_ONLY_MY_PHOTO } from './actionTypes'
 
 const initialState = {
 	user: null,
 	isShowAll: true,
 	userData: {},
 	photoData: [],
+	// myPhoto: false,
 }
 
 export const reducer = (state = initialState, action) => {
@@ -15,6 +16,8 @@ export const reducer = (state = initialState, action) => {
 			return { ...state, userData: action.userData }
 		case SET_PHOTO_DATA:
 			return { ...state, photoData: action.photoData }
+		case SHOW_ONLY_MY_PHOTO:
+			return { ...state, isShowAll: !state.isShowAll }
 		default:
 			return state
 	}

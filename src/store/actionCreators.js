@@ -1,4 +1,4 @@
-import { SET_USER, SET_USER_DATA, SET_PHOTO_DATA } from './actionTypes'
+import { SET_USER, SET_USER_DATA, SET_PHOTO_DATA, SHOW_ONLY_MY_PHOTO } from './actionTypes'
 import { loginUser, registerUser } from '../firebase'
 
 export const setUser = (user) => ({
@@ -8,8 +8,13 @@ export const setUser = (user) => ({
 export const getPhotoThunk = () => async (dispatch) => {
 	const responce = await fetch('https://my-json-server.typicode.com/jathpr/galery/photo')
 	const photoData = await responce.json()
+	console.log(photoData)
 	dispatch({ type: SET_PHOTO_DATA, photoData })
 }
+export const getMyPhoto = () => ({
+	type: SHOW_ONLY_MY_PHOTO,
+})
+
 export const authUserThunk = (login, pass) => async (dispatch) => {
 	const responce = await loginUser(login, pass)
 	console.log(responce)

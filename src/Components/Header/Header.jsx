@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Button, PageHeader, Menu, Dropdown } from 'antd'
 import { UserOutlined } from '@ant-design/icons'
 import Avatar from 'antd/lib/avatar/avatar'
@@ -6,12 +6,14 @@ import { signOut } from '../../firebase'
 import { MenuButton } from './styles'
 import { Link } from 'react-router-dom'
 
-export const HeaderComponent = ({ user, setUser }) => {
+export const HeaderComponent = ({ user, setUser, getMyPhoto }) => {
 	const extra = []
 	const menu = (
 		<Menu className='bcg'>
 			<Menu.Item>
-				<a target='_blank'>показать только мои</a>
+				<a target='_blank' onClick={() => getMyPhoto()}>
+					показать только мои
+				</a>
 			</Menu.Item>
 			<Menu.Item>
 				<Link to='/profile'>профиль</Link>
