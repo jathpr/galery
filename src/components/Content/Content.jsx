@@ -4,6 +4,7 @@ import { Pagination } from 'antd'
 import 'antd/dist/antd.css'
 import s from './Content.module.css'
 import { addImage, addUser, getImage, getUser, addPhoto, getPhotos } from '../../firebase'
+import Modal from '../Modal'
 
 export const ContentComponent = ({ photoData, getPhotoData }) => {
 	const [pictures, setPictures] = useState([])
@@ -37,6 +38,7 @@ export const ContentComponent = ({ photoData, getPhotoData }) => {
 
 	return (
 		<div className={s.pictures_block}>
+			<Modal />
 			<button onClick={() => addPhoto({ alt: 1, url: 1 })}>add</button>
 			<button onClick={() => getPhotos()}>get</button>
 			<input type='file' onChange={onImageSelected} />
