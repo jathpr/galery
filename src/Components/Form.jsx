@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { message, Form, Input, Button } from 'antd'
 import { sendPhoto } from '../requests/photos'
+import { addPhoto } from '../firebase'
 
 const layout = {
 	labelCol: { span: 8 },
@@ -13,10 +14,11 @@ const tailLayout = {
 export const Demo = () => {
 	const [form] = Form.useForm()
 	const [image, setImg] = useState()
+	const [file, setFile] = useState()
 
 	const onImageSelected = (e) => {
 		const file = e.target.files[0]
-
+		setFile(file)
 		const reader = new FileReader()
 		reader.onloadend = function () {
 			setImg(reader.result)
@@ -24,7 +26,7 @@ export const Demo = () => {
 		reader.readAsDataURL(file)
 	}
 	const onFinish = (values) => {
-		sendPhoto({ about: values.note, userId: 111, image: image, url: values.fileUrl })
+		addPhoto({ alt: values.note, userId: 111, photo: file })
 	}
 	const onReset = () => {
 		form.resetFields()
