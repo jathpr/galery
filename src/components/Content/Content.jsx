@@ -3,7 +3,7 @@ import { Pictures } from './pictures/Pictures'
 import { Pagination } from 'antd'
 import 'antd/dist/antd.css'
 import s from './Content.module.css'
-import { addImage, addUser, getImage, getUser } from '../../firebase'
+import { addImage, addUser, getImage, getUser, addPhoto, getPhotos } from '../../firebase'
 
 export const ContentComponent = ({ photoData, getPhotoData }) => {
 	const [pictures, setPictures] = useState([])
@@ -37,8 +37,8 @@ export const ContentComponent = ({ photoData, getPhotoData }) => {
 
 	return (
 		<div className={s.pictures_block}>
-			<button onClick={() => addUser({ name: 'name', about: 'bout' })}>add</button>
-			<button onClick={() => getUser()}>get</button>
+			<button onClick={() => addPhoto({ alt: 1, url: 1 })}>add</button>
+			<button onClick={() => getPhotos()}>get</button>
 			<input type='file' onChange={onImageSelected} />
 			<button onClick={async () => setImage(await getImage('someImg'))}>get Image</button>
 			<img src={image && URL.createObjectURL(image)} />

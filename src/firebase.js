@@ -7,6 +7,7 @@ const storage = fbStorage()
 
 const USERS = 'users'
 const IMAGES = 'images'
+const PHOTOS = 'photos'
 
 export function loginUser(email, password) {
 	return currentAuth.signInWithEmailAndPassword(email, password)
@@ -41,7 +42,20 @@ export const addImage = async (imageName, image) => {
 	const newImgRef = storageRef.child(`${IMAGES}/${imageName}.jpg`)
 	await newImgRef.put(image)
 }
+export const addPhoto = async ({ alt, url }) => {
+	const newPhoto = await db.collection(PHOTOS).add({ alt, url })
+	const myPhoto = await db.collection(PHOTOS).doc(newPhoto.id).get()
+	console.log(myPhoto)
+}
+export const getPhotos = async () => {
+	const photos = await db.collection(PHOTOS).get()
 
+	const photosAll = []
+	photos.forEach((doc) => photosAll.push({ ...doc.data(), id: doc.id }))
+	console.log(photosAll)
+
+	return photosAll
+}
 export const getImage = async (imageName) => {
 	const storageRef = storage.ref(IMAGES)
 	const url = await storageRef.child(`${imageName}.jpg`).getDownloadURL()
