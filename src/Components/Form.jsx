@@ -47,14 +47,6 @@ export const Demo = () => {
 			<Form.Item name='fileUrl' label='Download image url' rules={[{ required: false }]}>
 				<input />
 			</Form.Item>
-			<Form.Item {...tailLayout}>
-				<Button type='primary' htmlType='submit'>
-					Submit
-				</Button>
-				<Button htmlType='button' onClick={onReset}>
-					Reset
-				</Button>
-			</Form.Item>
 		</Form>
 	)
 }
