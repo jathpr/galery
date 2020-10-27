@@ -1,6 +1,7 @@
 import React from 'react'
 import { Demo } from './Form'
 import { Modal, Button } from 'antd'
+import './Modal.css'
 
 class App extends React.Component {
 	state = { visible: false }
@@ -28,8 +29,8 @@ class App extends React.Component {
 	render() {
 		return (
 			<>
-				<Button type='primary' onClick={this.showModal}>
-					Open Modal
+				<Button className={'add-image-btn'} type='primary' onClick={this.showModal}>
+					<span>+</span>
 				</Button>
 				<Modal
 					destroyOnClose
