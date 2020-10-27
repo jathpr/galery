@@ -56,10 +56,21 @@ export const getPhotos = async () => {
 
 	const photosAll = []
 	photos.forEach((doc) => photosAll.push({ ...doc.data(), id: doc.id }))
-	console.log(photosAll)
+	for (const photo of photosAll) {
+		photo.url = await getImageUrl(photo.id)
+	}
+	// console.log(photosAll)
+	// , url: getImageUrl(doc.id)
 
 	return photosAll
 }
+export const getImageUrl = async (imageName) => {
+	const storageRef = storage.ref(IMAGES)
+	const url = await storageRef.child(imageName).getDownloadURL()
+
+	return url
+}
+
 export const getImage = async (imageName) => {
 	const storageRef = storage.ref(IMAGES)
 	const url = await storageRef.child(`${imageName}.jpg`).getDownloadURL()

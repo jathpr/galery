@@ -45,11 +45,7 @@ export const ContentComponent = ({ photoData, getPhotoData }) => {
 			<button onClick={async () => setImage(await getImage('someImg'))}>get Image</button>
 			<img src={image && URL.createObjectURL(image)} />
 
-			<ul>
-				{photoData.map((pic) => (
-					<Pictures key={pic.id} obj={pic} />
-				))}
-			</ul>
+			<ul>{photoData && photoData.map((pic) => <Pictures key={pic.id} obj={pic} />)}</ul>
 			<div className={s.pag}>
 				<Pagination onChange={changePag} defaultCurrent={1} total={pictures.length} defaultPageSize={1} />
 			</div>
