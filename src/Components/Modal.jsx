@@ -31,8 +31,14 @@ class App extends React.Component {
 				<Button type='primary' onClick={this.showModal}>
 					Open Modal
 				</Button>
-				<Modal title='Basic Modal' visible={this.state.visible} onOk={this.handleOk} onCancel={this.handleCancel}>
-					<Demo />
+				<Modal
+					destroyOnClose
+					title='Basic Modal'
+					footer={null}
+					visible={this.state.visible}
+					onOk={this.handleOk}
+					onCancel={this.handleCancel}>
+					<Demo close={this.handleCancel} />
 				</Modal>
 			</>
 		)
