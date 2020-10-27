@@ -1,5 +1,5 @@
 import React from 'react'
-import { Demo } from './Form'
+import { AddPhoto } from './AddPhoto'
 import { Modal, Button } from 'antd'
 import './Modal.css'
 
@@ -39,7 +39,7 @@ class App extends React.Component {
 					visible={this.state.visible}
 					onOk={this.handleOk}
 					onCancel={this.handleCancel}>
-					<Demo close={this.handleCancel} />
+					<AddPhoto close={this.handleCancel} />
 				</Modal>
 			</>
 		)

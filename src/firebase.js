@@ -40,15 +40,16 @@ export const getUser = async () => {
 export const addImage = async (imageName, image) => {
 	const storageRef = storage.ref()
 	const newImgRef = storageRef.child(`${IMAGES}/${imageName}`)
-	await newImgRef.put(image)
+
+	return await newImgRef.put(image)
 }
 
-export const addPhoto = async ({ alt, photo, userId }) => {
-	const newPhoto = await db.collection(PHOTOS).add({ alt, userId })
+export const addPhoto = async ({ about, photo, userId }) => {
+	const newPhoto = await db.collection(PHOTOS).add({ about, userId })
 	await addImage(newPhoto.id, photo)
+	const url = await getImageUrl(newPhoto.id)
 
-	return
-	//const myPhoto = await db.collection(PHOTOS).doc(newPhoto.id).get()
+	return { about, userId, url }
 }
 
 export const getPhotos = async () => {
@@ -59,8 +60,6 @@ export const getPhotos = async () => {
 	for (const photo of photosAll) {
 		photo.url = await getImageUrl(photo.id)
 	}
-	// console.log(photosAll)
-	// , url: getImageUrl(doc.id)
 
 	return photosAll
 }

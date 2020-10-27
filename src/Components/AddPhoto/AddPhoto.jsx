@@ -1,7 +1,5 @@
 import React, { useState } from 'react'
-import { message, Form, Input, Button } from 'antd'
-import { sendPhoto } from '../requests/photos'
-import { addPhoto } from '../firebase'
+import { Form, Input, Button } from 'antd'
 
 const layout = {
 	labelCol: { span: 8 },
@@ -11,7 +9,7 @@ const tailLayout = {
 	wrapperCol: { offset: 8, span: 16 },
 }
 
-export const Demo = ({ close }) => {
+export const AddPhotoComponent = ({ close, addPhoto }) => {
 	const [form] = Form.useForm()
 	const [image, setImg] = useState()
 	const [file, setFile] = useState()
@@ -26,8 +24,7 @@ export const Demo = ({ close }) => {
 		reader.readAsDataURL(file)
 	}
 	const onFinish = (values) => {
-		console.log('rrrrr')
-		addPhoto({ alt: values.note, userId: 111, photo: file })
+		addPhoto({ about: values.note, userId: 111, photo: file })
 	}
 	const onReset = () => {
 		form.resetFields()
