@@ -11,7 +11,7 @@ const tailLayout = {
 	wrapperCol: { offset: 8, span: 16 },
 }
 
-export const Demo = () => {
+export const Demo = ({ close }) => {
 	const [form] = Form.useForm()
 	const [image, setImg] = useState()
 	const [file, setFile] = useState()
@@ -26,6 +26,7 @@ export const Demo = () => {
 		reader.readAsDataURL(file)
 	}
 	const onFinish = (values) => {
+		console.log('rrrrr')
 		addPhoto({ alt: values.note, userId: 111, photo: file })
 	}
 	const onReset = () => {
@@ -44,11 +45,8 @@ export const Demo = () => {
 					<input type='file' onChange={onImageSelected} />
 				</div>
 			</Form.Item>
-			<Form.Item name='fileUrl' label='Download image url' rules={[{ required: false }]}>
-				<input />
-			</Form.Item>
 			<Form.Item {...tailLayout}>
-				<Button type='primary' htmlType='submit'>
+				<Button type='primary' htmlType='submit' onClick={close}>
 					Submit
 				</Button>
 				<Button htmlType='button' onClick={onReset}>
