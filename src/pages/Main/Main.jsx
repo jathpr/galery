@@ -1,11 +1,11 @@
 import React from 'react'
-import { HeaderLogo } from '../components/Header'
+import { HeaderLogo } from '../../components/Header'
 import { connect } from 'react-redux'
-import { SideMenu } from '../components/SideMenu'
-import { Content } from '../components/Content'
+import { SideMenu } from '../../components/SideMenu'
+import { Content } from '../../components/Content'
 import { Layout } from 'antd'
 import { Route, Switch } from 'react-router-dom'
-import { Profile } from '../components/Profile'
+import { Profile } from '../../components/Profile'
 import { CustomHeader } from './style'
 const { Sider, Content: AntdContent } = Layout
 
@@ -15,9 +15,6 @@ const MainComponent = ({ user }) => (
 			<HeaderLogo />
 		</CustomHeader>
 		<Layout>
-			<Sider>
-				<SideMenu />
-			</Sider>
 			<AntdContent>
 				<Switch>
 					<Route path='/profile' component={Profile} />

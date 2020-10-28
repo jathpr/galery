@@ -1,21 +1,19 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { Pictures } from './pictures/Pictures'
 import s from './Content.module.css'
-import Modal from '../Modal'
+import { Modal } from '../Modal'
+import { Carousel } from 'antd'
 
-export const ContentComponent = ({ photoData, getPhotoData }) => {
+export const ContentComponent = ({ photoData, getPhotoData, user }) => {
 	useEffect(() => {
 		getPhotoData()
 	}, [])
 
 	return (
 		<div className={s.pictures_block}>
-			<Modal />
+			{user && <Modal uid={user.uid} />}
 
-			<ul>{photoData && photoData.map((pic) => <Pictures key={pic.id} obj={pic} />)}</ul>
-			<div className={s.pag}>
-				{/* <Pagination onChange={changePag} defaultCurrent={1} total={pictures.length} defaultPageSize={1} /> */}
-			</div>
+			<Carousel autoplay>{photoData && photoData.map((pic) => <Pictures key={pic.id} obj={pic} />)}</Carousel>
 		</div>
 	)
 }

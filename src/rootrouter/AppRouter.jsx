@@ -11,7 +11,7 @@ export const AppRouter = ({ isAuth, setUser, getUserDataThunk }) => {
 		getUserDataThunk()
 		initAuth((user) => {
 			setUser(user)
-			user ? history.push('/') : history.push('/login')
+			user && history.push('/')
 		})
 	}, [])
 

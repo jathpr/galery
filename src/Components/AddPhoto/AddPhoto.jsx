@@ -9,7 +9,7 @@ const tailLayout = {
 	wrapperCol: { offset: 8, span: 16 },
 }
 
-export const AddPhotoComponent = ({ close, addPhoto }) => {
+export const AddPhotoComponent = ({ close, addPhoto, uid }) => {
 	const [form] = Form.useForm()
 	const [image, setImg] = useState()
 	const [file, setFile] = useState()
@@ -24,7 +24,7 @@ export const AddPhotoComponent = ({ close, addPhoto }) => {
 		reader.readAsDataURL(file)
 	}
 	const onFinish = (values) => {
-		addPhoto({ about: values.note, userId: 111, photo: file })
+		addPhoto({ about: values.note, userId: uid, photo: file })
 	}
 	const onReset = () => {
 		form.resetFields()

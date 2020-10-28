@@ -1,18 +1,18 @@
-import React, { useEffect } from 'react'
-import { Button, PageHeader, Menu, Dropdown } from 'antd'
 import { UserOutlined } from '@ant-design/icons'
+import { Button, Dropdown, Menu, PageHeader } from 'antd'
 import Avatar from 'antd/lib/avatar/avatar'
+import React from 'react'
+import { Link } from 'react-router-dom'
 import { signOut } from '../../firebase'
 import { MenuButton } from './styles'
-import { Link } from 'react-router-dom'
 
-export const HeaderComponent = ({ user, setUser, getMyPhoto }) => {
+export const HeaderComponent = ({ isShowAll, user, getMyPhoto }) => {
 	const extra = []
 	const menu = (
 		<Menu className='bcg'>
 			<Menu.Item>
 				<a target='_blank' onClick={() => getMyPhoto()}>
-					показать только мои
+					{isShowAll ? 'показать только мои' : 'показать все фото'}
 				</a>
 			</Menu.Item>
 			<Menu.Item>
@@ -36,12 +36,16 @@ export const HeaderComponent = ({ user, setUser, getMyPhoto }) => {
 			</Dropdown>,
 		)
 	} else {
-		extra.push(<Button>Войти</Button>)
+		extra.push(
+			<Button>
+				<Link to='/login'>Log In</Link>
+			</Button>,
+		)
 	}
 
 	return (
 		<>
-			<PageHeader className='site-page-header' title='Заголовок' extra={extra} />
+			<PageHeader title={<Link to='/'>Galerы</Link>} ghost={false} extra={extra} />
 		</>
 	)
 }

@@ -5,6 +5,7 @@ import { HeaderComponent } from './Header'
 const mapStateToProps = (state) => ({
 	user: state.reducer.user,
 	userData: state.reducer.userData,
+	isShowAll: state.reducer.isShowAll,
 })
 const actionCreator = {
 	setUser,

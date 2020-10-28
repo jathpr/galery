@@ -1,21 +1,14 @@
 import React from 'react'
 import { AddPhoto } from './AddPhoto'
-import { Modal, Button } from 'antd'
+import { Modal as ModalAntd, Button } from 'antd'
 import './Modal.css'
 
-class App extends React.Component {
+export class Modal extends React.Component {
 	state = { visible: false }
 
 	showModal = () => {
 		this.setState({
 			visible: true,
-		})
-	}
-
-	handleOk = (e) => {
-		console.log(e)
-		this.setState({
-			visible: false,
 		})
 	}
 
@@ -32,18 +25,16 @@ class App extends React.Component {
 				<Button className={'add-image-btn'} type='primary' onClick={this.showModal}>
 					<span>+</span>
 				</Button>
-				<Modal
+				<ModalAntd
 					destroyOnClose
 					title='Basic Modal'
 					footer={null}
 					visible={this.state.visible}
 					onOk={this.handleOk}
 					onCancel={this.handleCancel}>
-					<AddPhoto close={this.handleCancel} />
-				</Modal>
+					<AddPhoto close={this.handleCancel} uid={this.props.uid} />
+				</ModalAntd>
 			</>
 		)
 	}
 }
-
-export default App

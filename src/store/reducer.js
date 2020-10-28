@@ -5,7 +5,6 @@ const initialState = {
 	isShowAll: true,
 	userData: {},
 	photoData: [],
-	// myPhoto: false,
 }
 
 export const reducer = (state = initialState, action) => {
